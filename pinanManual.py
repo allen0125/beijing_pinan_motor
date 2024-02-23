@@ -9,9 +9,6 @@ import requests
 import time
 import json
 
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi K30 5G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36'
-}
 
 # 日期时间戳
 timestamp = int(time.time() * 1000)
@@ -21,8 +18,14 @@ contactName = '*****'
 vehicleNo = '京B-*****'
 contactTelephone = '*******'
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi K30 5G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Mobile Safari/537.36',
+    'signature': signature,
+    'sessionId': sessionId,
+}
+
 # 预约接口
-url = 'https://newretail.pingan.com.cn/ydt/reserve/store/bookingTime?storefrontseq=39807&businessType=14&time={}'.format(
+url = 'https://newretail.pingan.com.cn/ydt/reserve/store/bookingTime?source=miniApps&storefrontseq=39807&businessType=14&time={}'.format(
     timestamp)
 
 
